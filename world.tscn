@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ig07amkxyb55"]
+
+[ext_resource type="Texture2D" uid="uid://bqekggjcbryrv" path="res://sprites/background-day.png" id="1_7mic6"]
+[ext_resource type="PackedScene" uid="uid://dj0ng3jgf0cas" path="res://bird.tscn" id="2_o4mk1"]
+[ext_resource type="PackedScene" uid="uid://cd4ia33nd2sng" path="res://pipe.tscn" id="3_4sn0n"]
+[ext_resource type="Script" path="res://Area2D.gd" id="4_r3wbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmasj"]
+size = Vector2(20, 514)
+
+[node name="World" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-260.0, 1363.0, -426.0, -415.0]
+
+[node name="Background-day" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_7mic6")
+
+[node name="Background-day2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(280, 0)
+texture = ExtResource("1_7mic6")
+
+[node name="Background-day3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-282, 0)
+texture = ExtResource("1_7mic6")
+
+[node name="Bird" parent="." instance=ExtResource("2_o4mk1")]
+
+[node name="Pipe" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(269, 0)
+
+[node name="Pipe2" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(435, 0)
+
+[node name="Pipe3" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(609, 0)
+
+[node name="Pipe4" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(778, 0)
+rotation = -0.00683382
+
+[node name="Pipe5" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(944, 0)
+
+[node name="Pipe6" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(1118, 0)
+
+[node name="Pipe7" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(1282, 0)
+
+[node name="Pipe8" parent="." instance=ExtResource("3_4sn0n")]
+position = Vector2(1448, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_r3wbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-415, 2)
+shape = SubResource("RectangleShape2D_tmasj")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = -426.0
+offset_top = -1566.0
+offset_right = -332.0
+offset_bottom = 1576.0
+color = Color(1, 0.164706, 0.0705882, 0.482353)
+
+[node name="ColorRect2" type="ColorRect" parent="Area2D"]
+offset_left = -332.0
+offset_top = -1566.0
+offset_right = -238.0
+offset_bottom = 1576.0
+color = Color(1, 0.372549, 0.0705882, 0.482353)
+
+[connection signal="body_entered" from="Area2D" to="Bird" method="_on_area_2d_body_entered"]
