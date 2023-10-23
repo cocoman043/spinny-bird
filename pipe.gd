@@ -11,11 +11,12 @@ func _ready():
 func _process(delta):
 	translate(Vector2(-PIPE_SPEED * delta, 0))
 	if position.x < -500:
-		position.x = 1363
+		position.x = 863
 		position.y = 0
 		translate(Vector2(0,randf_range(-200.0, 200.0)))
 
 
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	emit_signal("add_point")
+	GameManager.points += 1
+	GameManager.update_points()
