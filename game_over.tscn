@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhw5fnn6mnpr"]
+
+[sub_resource type="SystemFont" id="SystemFont_mmjfy"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_utju4"]
+font = SubResource("SystemFont_mmjfy")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.439216, 0.623529, 0.239216)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_utju4")
